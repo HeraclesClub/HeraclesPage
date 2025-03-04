@@ -1,0 +1,212 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Fondo negro */
+    color: white;
+    font-family: 'Open Sans', sans-serif; /* Fuente Open Sans */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Encabezado */
+header {
+    background-color: rgba(110, 110, 110, 1); /* Gris rata con opacidad */
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+header.translucent {
+    background-color: rgba(110, 110, 110, 0.7); /* Fondo translúcido */
+}
+
+.title-container h1 {
+    font-family: 'Lancelot', serif; /* Fuente Lancelot solo para el título */
+    font-size: 2rem; /* Título más pequeño */
+    color: #DAA520; /* Amarillo mostaza */
+    margin: 0;
+}
+
+/* Galería de imágenes */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0 20px 0; /* Margen superior para el título fijo */
+    width: 100%;
+    position: relative; /* Para posicionar los botones correctamente */
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.gallery-image {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 10px;
+}
+
+/* Botones de navegación */
+.nav-button {
+    background-color: rgba(218, 165, 32, 0.7); /* Amarillo mostaza translúcido */
+    border: none;
+    color: black;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(218, 165, 32, 0.9); /* Amarillo mostaza menos translúcido */
+}
+
+/* Texto adicional arriba de los textos nuevos */
+.additional-text {
+    background-color: #DAA520; /* Amarillo mostaza */
+    color: black;
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 1.5rem; /* Tamaño más grande */
+    font-weight: bold; /* Negritas */
+    opacity: 0; /* Inicialmente oculto */
+    transform: translateY(20px); /* Desplazamiento inicial */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.additional-text.fade-in {
+    opacity: 1; /* Visible */
+    transform: translateY(0); /* Sin desplazamiento */
+}
+
+/* Nuevos textos (lado a lado) */
+.text-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px 0;
+    gap: 20px; /* Espacio entre los textos */
+}
+
+.text-block {
+    background-color: #DAA520; /* Amarillo mostaza */
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    opacity: 0; /* Inicialmente oculto */
+    transform: translateZ(-1400px); /* Desplazamiento inicial */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.text-block.slide-in-fwd-center {
+    opacity: 1; /* Visible */
+    transform: translateZ(0); /* Sin desplazamiento */
+}
+
+.text-block h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.text-block h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.text-block p, .text-block ul, .text-block ol {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.text-block ul, .text-block ol {
+    padding-left: 20px;
+}
+
+.text-block li {
+    margin-bottom: 10px;
+}
+
+/* Pie de página */
+footer {
+    background-color: #DAA520; /* Amarillo mostaza */
+    color: black;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: auto; /* Mantiene el footer al final */
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Íconos de redes sociales */
+.social-links {
+    margin: 10px 0;
+}
+
+.social-links i {
+    margin-right: 5px;
+}
+
+/* Animaciones */
+@keyframes text-focus-in {
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.text-focus-in {
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@keyframes slide-in-fwd-center {
+    0% {
+        transform: translateZ(-1400px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-fwd-center {
+    animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
